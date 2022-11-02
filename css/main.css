@@ -1,0 +1,18 @@
+body{
+    background-color: rgb(14, 13, 13);
+}
+
+.logo{
+    width: 150px;
+    height: 80px;
+}
+
+.ico{
+    padding-top: 15px;
+    font-size: 45px;
+}
+
+.cont{
+    display: flex;
+    flex-direction: row;
+}
