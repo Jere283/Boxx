@@ -16,3 +16,22 @@ body{
     display: flex;
     flex-direction: row;
 }
+
+.butt{
+    border: none;
+    background: none;
+}
+
+.nov{
+    background-color: #929aab;
+    height: 400px;  
+}
+
+/* Hovers */
+.ico:hover{
+    font-size: 40px;
+    
+}
+
+
+
