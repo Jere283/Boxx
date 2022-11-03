@@ -2,29 +2,52 @@ body{
     background-color: rgb(14, 13, 13);
 }
 
+/*Logo Boxx */
 .logo{
     width: 150px;
     height: 80px;
 }
 
+/* Iconos ( menus, shopping bag, etc.*/
 .ico{
     padding-top: 15px;
     font-size: 45px;
 }
 
+/* display contenedor de iconos ( rows) */
 .cont{
     display: flex;
     flex-direction: row;
 }
 
+/*Botones*/
 .butt{
     border: none;
     background: none;
 }
 
+/* Barra de novedades */
 .nov{
     background-color: #929aab;
     height: 400px;  
+}
+
+/* Contenedor de elementos principales*/
+.princi{
+    margin: 20px;
+}
+
+/* Contenedor de productos FlexBox*/
+.contProd{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Productos o elementod dentro del 2nd cont*/
+.cubProd{
+    background-color: #929AAB;
+    height: 190px;   
+    width: 115px;
 }
 
 /* Hovers */
@@ -33,5 +56,12 @@ body{
     
 }
 
+/*tablets*/
+@media screen and (min-width: 670px ) {
+    .cubProd{
+        height: 250px;
+        width: 200px;
+    }
+}
 
 
