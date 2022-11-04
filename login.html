@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" href="libs/bootstrap-5.2.2-dist/css/bootstrap.min.css">
+
+    <title>Boxx-Inicia Sesion</title>
+</head>
+
+<body>
+    
+    <nav style="border-bottom: solid 2px black;">
+        <!-- container que contiene las 3 columnas en la que se divide la navbar, dentro de la misma estan
+       3 botones y un logo -->
+       <div class="container">
+           <div class="row">
+               <div class="col">
+                   <!-- boton de menu -->
+                   <button class="butt"  onclick="openNav()" ><i class="fa-solid fa-bars ico"></i></button>
+               </div>
+               <div class="col">
+                   <!-- Logo Principal -->
+                   <img class="logo" onclick="return2Main()" src="img/Logo.png " alt="">
+               </div>
+               <div class="col">
+                   <!--Div contenedor que contiene 3 divs con un boton de busqueda y un boton de una shopping
+                   bag que fueron arreglados en columnas utilizando Flexbox -->
+                   <div class="cont">
+                       <div>
+                           <button class="butt"><i class="fa-solid fa-magnifying-glass ico cont"></i></button>
+                       </div>
+                       <div>
+                           <button class="butt"><i class="fa-solid fa-bag-shopping ico"></i></button>
+                       </div>
+                       <div>
+                           <button class="butt"><i class="fa-solid fa-user ico" ></i></button>
+                       </div>
+                   </div>    
+               </div>
+           </div>
+       </div>
+   </nav>
+    
+    <H1 onclick="return2Main()">login page</H1>
+    <script src="js/index.js"></script>
+    <script src="libs/bootstrap-5.2.2-dist/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/12c21b7c23.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" href="libs/bootstrap-5.2.2-dist/css/bootstrap.min.css">
 
-    <title>Box</title>
+    <title>Boxx</title>
 </head>
 <body>
     <!-- Barra de navegacion -->
@@ -19,21 +19,24 @@
             <div class="row">
                 <div class="col">
                     <!-- boton de menu -->
-                    <button class="butt"><i class="fa-solid fa-bars ico"></i></button>
+                    <button class="butt"  onclick="openNav()" ><i class="fa-solid fa-bars ico"></i></button>
                 </div>
                 <div class="col">
                     <!-- Logo Principal -->
-                    <img class="logo" src="img/Logo.jpeg" alt="">
+                    <img class="logo" src="img/Logo.png" alt="">
                 </div>
                 <div class="col">
-                    <!--Div contenedor que contiene 2 divs con un boton de busqueda y un boton de una shopping
+                    <!--Div contenedor que contiene 3 divs con un boton de busqueda y un boton de una shopping
                     bag que fueron arreglados en columnas utilizando Flexbox -->
                     <div class="cont">
-                        <div style="margin-right: 22px;">
+                        <div>
                             <button class="butt"><i class="fa-solid fa-magnifying-glass ico cont"></i></button>
                         </div>
                         <div>
                             <button class="butt"><i class="fa-solid fa-bag-shopping ico"></i></button>
+                        </div>
+                        <div>
+                            <button class="butt"><i class="fa-solid fa-user ico" onclick="change2Login() "></i></button>
                         </div>
                     </div>    
                 </div>
@@ -61,15 +64,42 @@
                 <div class="cubProd">
 
                 </div>
-            </div>       
+            </div>
+            <h3> Recien llegados</h3>
+            <div class="contProd">
+                <div class="cubProd">
+
+                </div>
+                <div class="cubProd">
+
+                </div>
+                <div class="cubProd">
+
+                </div>
+            </div>          
+        </div>
+        
+        <!-- Side nav menu bar-->
+        <div id="mySideNav" class="sideNav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="About">About</a>
+            <a href="Services">Services</a>
+            <a href="Clients">Clients</a>
+            <a href="Cat4">Cat4</a>
         </div>
 
+        <div id="contNav">
+
+        </div>
     </div>
     
     <!-- Pie de pagina-->
     <footer>
-
+        <div class="foot"></div>
     </footer>
+
+
+    <script src="js/index.js"></script>
     <script src="libs/bootstrap-5.2.2-dist/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/12c21b7c23.js" crossorigin="anonymous"></script>
 </body>

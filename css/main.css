@@ -4,14 +4,16 @@ body{
 
 /*Logo Boxx */
 .logo{
-    width: 150px;
-    height: 80px;
+    width: 160px;
+    height: 50px;
+    margin-top: 6px;
+    margin-bottom: 3px;
 }
 
 /* Iconos ( menus, shopping bag, etc.*/
 .ico{
-    padding-top: 15px;
-    font-size: 45px;
+    padding-top: 14px;
+    font-size: 30px;
 }
 
 /* display contenedor de iconos ( rows) */
@@ -41,6 +43,7 @@ body{
 .contProd{
     display: flex;
     justify-content: space-between;
+    margin-bottom: 50px;
 }
 
 /* Productos o elementod dentro del 2nd cont*/
@@ -50,18 +53,93 @@ body{
     width: 115px;
 }
 
-/* Hovers */
-.ico:hover{
-    font-size: 40px;
-    
+/*Footer*/
+.foot{
+    background-color: black;
+    height: 250px;
 }
 
+/* The side navigation menu */
+.sideNav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* mantiene oculta la navBar */
+    position: fixed; /* lo mantiene en lugar */
+    z-index: 1; /* para tenerla arriba */
+    top: 0; /* para tenerla arriva */
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* elimina el scroll bar horizontal*/
+    padding-top: 60px; 
+    transition: 0.5s; 
+  }
+  
+  /* los links del navbar */
+  .sideNav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+
+  
+  /* boton de cerrar */
+  .sideNav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  /* trarnsicion */
+  #contNav {
+    transition: margin-left .5s;
+    padding: 20px;
+  }
+  
+
+
+
+/* Hovers */
+.ico:hover{
+    font-size: 25px;   
+}
+
+/* Cambiar color de letras al presionarlo*/
+  .sideNav a:hover {
+    color: #f1f1f1;
+  }
+
 /*tablets*/
-@media screen and (min-width: 670px ) {
+@media screen and (min-width: 768px ) {
     .cubProd{
         height: 250px;
         width: 200px;
     }
+
+    /*Logo Boxx */
+.logo{
+    width: 250px;
+    height: 80px;
+    margin-top: 7px;
+    margin-right: 50px;
 }
+
+/* Iconos ( menus, shopping bag, etc.*/
+.ico{
+    padding-top: 24px;
+    font-size: 45px;
+}
+
+    }
+
+  /* Celulares pequenhos */
+  @media screen and (max-width: 425px) {
+    .sideNav {padding-top: 15px;}
+    .sideNav a {font-size: 18px;}
+  }
 
 
