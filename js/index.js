@@ -18,3 +18,4 @@ function openNav() {
   {
     location.replace("index.html")
   }
+
