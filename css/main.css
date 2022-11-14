@@ -16,6 +16,10 @@ body{
     margin-bottom: 3px;
 }
 
+.hov:hover{
+    opacity: 0.85;
+    transform: scale(1.015);
+}
 /* Iconos ( menus, shopping bag, etc.*/
 .ico{
     padding-top: 14px;
@@ -155,7 +159,7 @@ body{
 -----------------------------------------------------------------------------------------------------*/  
 /* Hovers */
 .ico:hover{
-    font-size: 25px;   
+    transform: scale(1.05);
 }
 
 /* Cambiar color de letras al presionarlo*/
