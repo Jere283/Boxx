@@ -1,92 +1,92 @@
 var categorias = [
-    {
-        nombreCategoria:"Camisetas Hombre",
-        genero:"Hombre",
-        portada:"img/Hombre/Camisetas/Portada.webp",
-        productos:[
-            {
-                nombreprod: "Camisa Grafica Hombre Nike",
-                genero: "Hombre",
-                talla: "L",
-                imagen:"img/Hombre/Camisetas/CGH-L-1.webp",
-                precio: 250
-            },
-            {
-                nombreprod: "Camisa Grafica ",
-                genero: "Hombre",
-                talla: "L",
-                imagen:"img/Hombre/Camisetas/CGH-L-2.webp",
-                precio: 300
-            },
-            {
-                nombreprod: "Camisa Grafica ",
-                genero: "Hombre",
-                talla: "M",
-                imagen:"img/Hombre/Camisetas/CGH-M-1.webp",
-                precio: 300
-            },
-            {
-                nombreprod: "Camisa Grafica",
-                genero: "Hombre",
-                talla: "M",
-                imagen:"img/Hombre/Camisetas/CGH-M-2.webp",
-                precio: 450
-            }
-        ]
-    },
-    {
-        nombreCategoria:"Deportivos Hombre",
+  {
+    nombreCategoria: "Camisetas Hombre",
+    genero: "Hombre",
+    portada: "img/Hombre/Camisetas/Portada.webp",
+    productos: [
+      {
+        nombreprod: "Camisa Grafica Hombre Nike",
         genero: "Hombre",
-        portada:"img/Hombre/Camisetas/Portada.webp",
-        productos:[
-            {
-                nombreprod: "SHORTS DEPORTIVOS",
-                genero: "Hombre",
-                talla: "L",
-                imagen:"CGH-L-1.webx",
-                precio: 250
-            },
-            {
-                nombreprod: "CAMISA GRAFICA ",
-                genero: "Hombre",
-                talla: "L",
-                imagen:"CGH-L-2.webx",
-                precio: 300
-            }
-        ]
-    },
+        talla: "L",
+        imagen: "img/Hombre/Camisetas/CGH-L-1.webp",
+        precio: 250,
+      },
+      {
+        nombreprod: "Camisa Grafica ",
+        genero: "Hombre",
+        talla: "L",
+        imagen: "img/Hombre/Camisetas/CGH-L-2.webp",
+        precio: 300,
+      },
+      {
+        nombreprod: "Camisa Grafica ",
+        genero: "Hombre",
+        talla: "M",
+        imagen: "img/Hombre/Camisetas/CGH-M-1.webp",
+        precio: 300,
+      },
+      {
+        nombreprod: "Camisa Grafica",
+        genero: "Hombre",
+        talla: "M",
+        imagen: "img/Hombre/Camisetas/CGH-M-2.webp",
+        precio: 450,
+      },
+    ],
+  },
+  {
+    nombreCategoria: "Deportivos Hombre",
+    genero: "Hombre",
+    portada: "img/Hombre/Camisetas/Portada.webp",
+    productos: [
+      {
+        nombreprod: "SHORTS DEPORTIVOS",
+        genero: "Hombre",
+        talla: "L",
+        imagen: "CGH-L-1.webx",
+        precio: 250,
+      },
+      {
+        nombreprod: "CAMISA GRAFICA ",
+        genero: "Hombre",
+        talla: "L",
+        imagen: "CGH-L-2.webx",
+        precio: 300,
+      },
+    ],
+  },
 ];
 
-document.getElementById('nomcat').innerHTML=categorias[0].nombreCategoria;
+document.getElementById("nomcat").innerHTML = categorias[0].nombreCategoria;
 /*document.getElementById('portadacat').innerHTML+=`<img src="${categorias[0].portada}" class="figure-img img-fluid rounded" alt="...">`;
-*/
+ */
 for (let i = 0; i < categorias[0].productos.length; i++) {
-    document.getElementById('primeroca').innerHTML+=`
+  document.getElementById("primeroca").innerHTML += `
     <div class="col btn" onclick="modalprod(${i})">
     <figure class="figure " data-bs-toggle="modal" data-bs-target="#exampleModal" >
     <img src="${categorias[0].productos[i].imagen}" class="figure-img img-fluid rounded hov shadow" alt="...">
     <figcaption class="figure-caption table-hover">${categorias[0].productos[i].nombreprod}-${categorias[0].productos[i].genero}</figcaption>
     <figcaption class="figure-caption text-dark">L. ${categorias[0].productos[i].precio}</figcaption>
     </figure>
-    </div>`
+    </div>`;
 }
 
-function aumentar(){
-  var b=document.getElementById('canti');
+function aumentar() {
+  var b = document.getElementById("canti");
   b.value++;
 }
 
-function disminuir(){
-
-  var b=document.getElementById('canti');
-  if (b.value>0) {
+function disminuir() {
+  var b = document.getElementById("canti");
+  if (b.value > 0) {
     b.value--;
   }
-  
 }
 
 function modalprod(indice) {
-    document.getElementById('cuerpo').innerHTML+=`<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  document.getElementById(
+    "cuerpo"
+  ).innerHTML += `<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -165,7 +165,7 @@ function modalprod(indice) {
         </div>
       </div>
     </div>
-  </div>`
+  </div>`;
 }
 
 /*/function Longitud() {

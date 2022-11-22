@@ -1,21 +1,18 @@
 /* Set the width of the side navigation to 250px */
 function openNav() {
-    document.getElementById("mySideNav").style.width = "250px";
-  }
-  
-  /* Set the width of the side navigation to 0 */
-  function closeNav() {
-    document.getElementById("mySideNav").style.width = "0";
-  }
+  document.getElementById("mySideNav").style.width = "250px";
+}
 
-  /* cambiar pagina */
-  function change2Login()
-  {
-    location.replace("login.html")
-  }
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+  document.getElementById("mySideNav").style.width = "0";
+}
 
-  function return2Main()
-  {
-    location.replace("index.html")
-  }
+/* cambiar pagina */
+function change2Login() {
+  location.replace("login.html");
+}
 
+function return2Main() {
+  location.replace("index.html");
+}
