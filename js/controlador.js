@@ -1,174 +1,263 @@
-var categorias = [
-    {
-        nombreCategoria:"Camisetas Hombre",
-        genero:"Hombre",
-        portada:"img/Hombre/Camisetas/Portada.webp",
-        productos:[
-            {
-                nombreprod: "Camisa Grafica Hombre Nike",
-                genero: "Hombre",
-                talla: "L",
-                imagen:"img/Hombre/Camisetas/CGH-L-1.webp",
-                precio: 250
-            },
-            {
-                nombreprod: "Camisa Grafica ",
-                genero: "Hombre",
-                talla: "L",
-                imagen:"img/Hombre/Camisetas/CGH-L-2.webp",
-                precio: 300
-            },
-            {
-                nombreprod: "Camisa Grafica ",
-                genero: "Hombre",
-                talla: "M",
-                imagen:"img/Hombre/Camisetas/CGH-M-1.webp",
-                precio: 300
-            },
-            {
-                nombreprod: "Camisa Grafica",
-                genero: "Hombre",
-                talla: "M",
-                imagen:"img/Hombre/Camisetas/CGH-M-2.webp",
-                precio: 450
-            }
-        ]
-    },
-    {
-        nombreCategoria:"Deportivos Hombre",
-        genero: "Hombre",
-        portada:"img/Hombre/Camisetas/Portada.webp",
-        productos:[
-            {
-                nombreprod: "SHORTS DEPORTIVOS",
-                genero: "Hombre",
-                talla: "L",
-                imagen:"CGH-L-1.webx",
-                precio: 250
-            },
-            {
-                nombreprod: "CAMISA GRAFICA ",
-                genero: "Hombre",
-                talla: "L",
-                imagen:"CGH-L-2.webx",
-                precio: 300
-            }
-        ]
-    },
+
+function $(ID) {
+  let elemento=document.getElementById(`${ID}`);
+  return elemento;
+}
+//nombre del menu
+let nmenu=$("nombre-menu");
+//imagen del menu
+let imenu=$("img-menu");
+//alerta login
+let alerta=$("alerta-login");
+//div de pedidos disponibles
+let pedidos=$("pedidos-disponibles");
+//titulo modal pedidos
+let titmp=$("titulo-pedido");
+let clp=$("clp");
+let pcl=$('pcl');
+let ccl=$('ccl');
+let dcl=$('dcl');
+let ncl=$('ncl');
+let pedidoactual;
+//Variables de Entregas
+  //Ganancias Div
+let gn=$('gn');
+//Estrellas Div
+let estre=$('estrellas');
+//Comentarios Div
+let comenta=$('comentarios');
+let alertas={
+  contraseña: "Rellene el campo de su contraseña",
+  incorrecto: "Datos incorrectos, contraseña o usuario incorrectos",
+  correo: "Rellene el campo de su correo",
+  vacio: "Porfavor rellene los campos"
+}
+
+let usuarios = {
+  
+      id:1,
+      nombre:"Pedro",
+      apellido:"Martinez",
+      contraseña: "Pedro1225",
+      email: "Pedromartin@gmail.com",
+      img: "profile-pics/androide_16.jpg",
+      ganancias: 155,
+      estrellas: 5,
+      comentarios: 20
+      
+  
+};
+
+
+let pedidosdis = [
+  {
+      id:1,
+      pago: 75,
+      totalcliente: 225,
+      direccion: "Universidad Nacional Autonoma de Honduras",
+      ncliente:"Jeremy",
+      acliente:"Figueroa",
+      fecha: "2022/12/5 22:42:00",
+      estado: "pendiente",
+      numcliente: "95030321",
+      productos:[
+          {
+              nombreProducto:"Camisa Adidas",
+              descripcion: "Camisa Adidas Negra Talla L",
+              cantidad:2,
+              precio:50
+          },
+          {
+              nombreProducto:"Camisa Nike",
+              descripcion: "Camisa Adidas Blanca Talla L",
+              cantidad:1,
+              precio:50
+          }
+      ]
+  },
+  {
+    id:2,
+    pago: 80,
+    totalcliente: 350,
+    direccion: "Colonia Primero de Mayo",
+    ncliente:"Fernando",
+    acliente:"Figueroa",
+    fecha: "2022/12/5 22:47:00",
+    estado: "pendiente",
+    numcliente: "89654521",
+    productos:[
+        {
+            nombreProducto:"Camisa Adidas",
+            descripcion: "Camisa Adidas Negra Talla L",
+            cantidad:2,
+            precio:50
+        },
+        {
+            nombreProducto:"Camisa Nike",
+            descripcion: "Camisa Adidas Blanca Talla L",
+            cantidad:1,
+            precio:50
+        }
+    ]
+}
 ];
 
-document.getElementById('nomcat').innerHTML=categorias[0].nombreCategoria;
-/*document.getElementById('portadacat').innerHTML+=`<img src="${categorias[0].portada}" class="figure-img img-fluid rounded" alt="...">`;
-*/
-for (let i = 0; i < categorias[0].productos.length; i++) {
-    document.getElementById('primeroca').innerHTML+=`
-    <div class="col btn" onclick="modalprod(${i})">
-    <figure class="figure " data-bs-toggle="modal" data-bs-target="#exampleModal" >
-    <img src="${categorias[0].productos[i].imagen}" class="figure-img img-fluid rounded hov shadow" alt="...">
-    <figcaption class="figure-caption table-hover">${categorias[0].productos[i].nombreprod}-${categorias[0].productos[i].genero}</figcaption>
-    <figcaption class="figure-caption text-dark">L. ${categorias[0].productos[i].precio}</figcaption>
-    </figure>
-    </div>`
+//OCULTAR ELEMENTOS
+function esconder(ID){
+  let elemento=document.getElementById(`${ID}`);
+  elemento.style.display = "none";
 }
 
-function aumentar(){
-  var b=document.getElementById('canti');
-  b.value++;
+//APARECER ELEMENTOS
+function aparecer(ID){
+  let elemento=document.getElementById(`${ID}`);
+  elemento.style.display = "block";
 }
 
-function disminuir(){
+//ocultar alerta al escribir
+function ocultaralerta() {
+  esconder("alerta-login");
+  
+}
 
-  var b=document.getElementById('canti');
-  if (b.value>0) {
-    b.value--;
+function inciarsesion() {
+  let email=$("email").value;
+  let password=$("password").value;
+  if (email=="" && password=="") {
+    alerta.innerHTML=alertas.vacio;
+    aparecer("alerta-login");
+  } else if(email=="" && password!=""){
+    alerta.innerHTML=alertas.correo;
+    aparecer("alerta-login");
+  } else if(email!="" && password==""){
+    alerta.innerHTML=alertas.contraseña;
+    aparecer("alerta-login");
+  } else{
+    alert("campos llenos");
+    comprobarusuarios(email, password);
   }
-  
 }
 
-function modalprod(indice) {
-    document.getElementById('cuerpo').innerHTML+=`<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Ordenar</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-        
-            
-        <div id="carouselExampleIndicators" class="carousel slide w-100 translate-midle" data-bs-ride="true">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="img/Hombre/Camisetas/CGH-L-1.webp" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="img/Hombre/Camisetas/CGH-L-2.webp" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="img/Hombre/Camisetas/CGH-M-2.webp" class="d-block w-100" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-      <h1 class="modal-title fs-5" id="exampleModalLabel">${categorias[0].productos[indice].nombreprod}</h1>
-      <p class="fw-bold fw-2">L.${categorias[0].productos[indice].precio}</p>
-      
-        <div class="container text-start shadow p-3 mb-2 bg-body rounded shadow">
-                <div class="row row-cols-2 p-2 ">
-                    <div class="col">
-                        <span class="align-middle">Talla</span>
-                    </div>
-                    <div class="col text-end">
-                    <select class="form-select w-100 rounded-pill" aria-label="Default select example">
-                    <option selected class="text-center">Seleccionar</option>
-                    <option value="1" class="text-center">S</option>
-                    <option value="2" class="text-center">M</option>
-                    <option value="3" class="text-center">L</option>
-                    <option value="4" class="text-center">XL</option>
-                  </select>
-                    </div>
-                </div>
-            </div>
-        <div class="container text-start shadow p-3 mb-2 bg-body rounded">
-                <div class="row row-cols-2 p-2 ">
-                    <div class="col">
-                        <span class="align-middle">Cantidad</span>
-                    </div>
-                    <div class="col text-end">
-                        <div class="btn-group rounded-pill" role="group" aria-label="Basic example">
-                            
-                            <input class="form-control text-center rounded-pill" type="number" id="canti" onclick="aumentar()" value=0 aria-label="Disabled input example" >
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <div class="container text-center">
+function calcularDiferenciaHoras(fecha2) {
+  let fecha1=new Date();
+  if (!(fecha1 instanceof Date) || !(fecha2 instanceof Date)) {
+      throw TypeError('Ambos argumentos deben ser objetos de tipo fecha (Date).');
+  }
+
+  let diferencia = (fecha2.getTime() - fecha1.getTime()) / 1000;
+  diferencia /= (60);
+
+  return Math.abs(Math.round(diferencia));
+}
+
+function comprobarusuarios(email, password){
+  if (usuarios.email==email ) {
+
+    alert("Sesion iniciada");
+    location.replace('Repartidores.html');
+    llenarcamposmenu();
+    
+  }
+}
   
-</div>
+function llenarcamposmenu(){
+  nmenu.innerHTML=`${usuarios.nombre} ${usuarios.apellido}`;
+  imenu.src=usuarios.img;
+}
+
+//Llenar Informacion de los pedidos
+function llenarinfo(){
+  llenarcamposmenu();
+  llenarpedidos();
+}
+
+//llenar informaciones de entregas
+function llenarinfoe(){
+  llenarcamposmenu();
+  llenarinfoentregas();
+}
+
+function llenarinfoentregas(){
+  gn.innerHTML=usuarios.ganancias;
+  estre.innerHTML=usuarios.estrellas;
+  comenta.innerHTML=usuarios.comentarios;
+
+
+}
+
+function llenarpedidos(){
+  $.each(pedidosdis, function (i, item) {
+    if (item.estado=="pendiente") {
+      var col=`
+    <div class="col pb-2" id="p${item.id}">
+    <div class="card text-start">
       
+      <div class="card-body">
+        
+        <h5 class="card-title">${item.pago}$</h5>
+        <p class="card-text">${item.direccion}</p>
+        <div class="container text-center">
+          <div class="row row-cols-2">
+            <div class="col"><div class="d-grid gap-2">
+          
+              <button class="btn btn-danger" type="button" id="rp${item.id}">Rechazar Trabajo</button>
+            </div></div>
+            <div class="col"><div class="d-grid gap-2">
+          
+              <button class="btn btn-success" type="button" id="bp${item.id}" data-bs-toggle="modal" data-bs-target="#modalpedido">Aceptar Trabajo</button>
+            </div></div>
+            
+          </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-dark w-100">Agregar a mi Pedido </button>
-        </div>
+        
+      </div>
+      <div class="card-footer text-muted">
+        Hace ${calcularDiferenciaHoras(new Date(item.fecha))} Minutos a 1.5 Km
       </div>
     </div>
-  </div>`
-}
-
-/*/function Longitud() {
-    alert(categorias.length + " " + categorias[0].nombreCategoria);
+  </div>`;
+  $('#pedidos-disponibles').append(col);
+    document.getElementById(`rp${item.id}`).addEventListener('click', function(){
+        esconder(`p${item.id}`);
+      });
+      document.getElementById(`bp${item.id}`).addEventListener('click', function(){
+        llenarmodalpedido(item);
+      });  
+      
+    }
     
-}/*/
+    console.log(item);
+    
+    });
+
+
+  }
+
+  function llenarmodalpedido(pedido) {
+    pedidoactual=pedido;
+    clp.innerHTML=`Cliente: ${pedido.ncliente}`;
+    pcl.innerHTML=`Pago del Cliente: ${pedido.totalcliente}`;
+    ccl.innerHTML=`Comisión: ${pedido.pago}`; 
+    dcl.innerHTML=`Dirección: ${pedido.direccion}`;
+    ncl.innerHTML=`Telefono del Cliente: ${pedido.numcliente}`;
+    console.log(pedido);
+    titmp.innerHTML="Trabajo Aceptado";
+    
+  }
+
+  function Trabajofin() {
+    pedidoactual.estado="entregado";
+    console.log(pedidoactual.estado);
+    console.log(pedidosdis[0].estado);
+    $('#pedidos-disponibles').empty();
+    llenarpedidos();
+
+
+    
+  }
+
+function cerrarsesion() {
+  location.replace('login.html');
+  
+}
+  

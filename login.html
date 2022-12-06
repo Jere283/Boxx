@@ -8,85 +8,67 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" href="libs/bootstrap-5.2.2-dist/css/bootstrap.min.css">
 
-    <title>Boxx-Inicia Sesion</title>
+    <title>Boxx Driver</title>
 </head>
+<body >
+    <!-- Barra de navegacion y Menu-->
 
-<body>
-    
-    <nav style="border-bottom: solid 2px black;">
-        <!-- container que contiene las 3 columnas en la que se divide la navbar, dentro de la misma estan
-       3 botones y un logo -->
-       <div class="container">
-           <div class="row">
-               <div class="col">
-                   <!-- boton de menu -->
-                   <button class="butt"  onclick="openNav()" ><i class="fa-solid fa-bars ico"></i></button>
-               </div>
-               <div class="col">
-                   <!-- Logo Principal -->
-                   <img class="logo" onclick="return2Main()" src="img/Logo.png " alt="">
-               </div>
-               <div class="col">
-                   <!--Div contenedor que contiene 3 divs con un boton de busqueda y un boton de una shopping
-                   bag que fueron arreglados en columnas utilizando Flexbox -->
-                   <div class="cont">
-                       <div>
-                           <button class="butt"><i class="fa-solid fa-magnifying-glass ico cont"></i></button>
-                       </div>
-                       <div>
-                           <button class="butt"><i class="fa-solid fa-bag-shopping ico"></i></button>
-                       </div>
-                       <div>
-                           <button class="butt"><i class="fa-solid fa-user ico" ></i></button>
-                       </div>
-                   </div>    
-               </div>
-           </div>
-       </div>
-   </nav>
-    
-   <form action="" method="post">
-        
-        <div class="container" style="margin-top: 30%;">
-            <div class = "lImg">
-                <img style=" height: 60px;" src="img/Logo.png">
-            </div>
+        <!-- Content here -->
+    <div class="container">
+      <div class="container text-center">
+        <div class="row">
+          <div class="col">
             
-            <div class="contLogs">
-                <label for="username"><b>Nombre de Usuario</b></label>
-                <input class="logs" type="text" placeholder="" name="uname" required>
-    
-                <label for="psw"><b>Clave</b></label>
-                <input class="logs" type="password" placeholder="" name="psw" required>
-    
-                <button name="login" class="logBtn" type="submit">Ingresar</button>
-                <div style="display: flex; flex-direction:row; justify-content: space-between;">
-                    <label>
-                        <input type="checkbox" checked ="checked" name="remember"> <b>Recuerdame</b>
-                    </label>
-                    <span style="font-weight: bold; color: black;" class="psw"><a href="#">Olvidaste tu clave?</a>  </span>
-                </div>
-            </div>
+          </div>
+          <div class="col-9">
+            <img src="img/Logo.png" class="rounded mx-auto d-block pt-5" alt="..." width="100%">
+            <h1 class="text-end">Driver</h1>
+          </div>
+          <div class="col">
+            
+          </div>
         </div>
-   </form>
-  
-   <!-- Side nav menu bar-->
-   <div id="mySideNav" class="sideNav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="About">About</a>
-    <a href="Services">Services</a>
-    <a href="Clients">Clients</a>
-    <a href="Cat4">Cat4</a>
-
-    <div id="contNav">
-
+        <div class="row">
+          <div class="col">
+          </div>
+          <div class="col-10 pt-3">
+            <form>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Correo</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" oninput="ocultaralerta()">
+                <div id="emailHelp" class="form-text">Nunca compartiremos tu contraseña con nadie mas.</div>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="password" oninput="ocultaralerta()">
+              </div>
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input bg-dark" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Mantener Sesión</label>
+              </div>
+              
+            </form>
+            <button class="btn btn-dark rounded-pill" onclick="inciarsesion()">Iniciar Sesión</button>
+            <div class="alert alert-danger mt-3" role="alert" id="alerta-login" style="display:none">
+            </div>
+          </div>
+          <div class="col">
+            
+          </div>
+        </div>
+      </div>
+      
     </div>
+    <div id="cuerpo">
+      
+    </div>
+    <!-- Contenedor Principal-->
     
-    </div>
+    
 
-  
 
     <script src="js/index.js"></script>
+    <script src="js/controlador.js"></script>
     <script src="libs/bootstrap-5.2.2-dist/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/12c21b7c23.js" crossorigin="anonymous"></script>
 </body>
