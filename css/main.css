@@ -7,11 +7,23 @@ body {
 -----------------------------------------------------------------------------------------------------*
 
 /*Logo Boxx */
+.center{
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
 .logo {
   width: 160px;
   height: 50px;
   margin-top: 6px;
   margin-bottom: 3px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-60%, -50%);
 }
 
 .hov:hover {
@@ -22,12 +34,14 @@ body {
 .ico {
   padding-top: 14px;
   font-size: 30px;
+  padding-bottom: 10px;
 }
 
 /* display contenedor de iconos ( rows) */
 .cont {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 /*Botones*/
@@ -58,7 +72,7 @@ body {
 .cubProd {
   background-color: #929aab;
   height: 190px;
-  width: 115px;
+  border: solid 1px black;
 }
 
 /*Footer*/

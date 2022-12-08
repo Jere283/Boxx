@@ -10,9 +10,9 @@ function closeNav() {
 
 /* cambiar pagina */
 function change2Login() {
-  location.replace("login.html");
+  window.location.href ="/login.html"
 }
 
 function return2Main() {
-  location.replace("index.html");
+  window.location.href = "/";
 }
